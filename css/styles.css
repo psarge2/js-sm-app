@@ -10,8 +10,8 @@
 .card__wrapper {
 	height: 400px;
 	padding: 20px;
-	min-width: 300px;
-	/*width: 100%;*/
+	max-width: 300px;
+	width: 100%;
 	background: #fff;
 	box-shadow: 0px 0px 62px 0px rgba(0, 0, 0, 0.22);
 	border-radius: 10px;
