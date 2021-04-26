@@ -1,5 +1,3 @@
-// let root = document.getElementsByClassName('root')[0];
-
 let data = {
   fullName: 'Jane Doe',
   title: 'UI/UX Designer',
@@ -31,10 +29,9 @@ let data = {
   ]
 }
 
-let style = document.createElement('style');
-
-let root = document.createElement('div');
 let body = document.getElementsByTagName('body')[0];
+let root = document.createElement('div');
+let style = document.createElement('style');
 let card = document.createElement('section');
 let html = `
 <div class="card__wrapper">
@@ -61,8 +58,7 @@ let cssStyles = `
   }
 
   .card__wrapper {
-    height: 400px;
-    padding: 20px;
+    padding: 20px 20px 3rem 20px;
     max-width: 300px;
     width: 100%;
     background: #fff;
@@ -169,10 +165,19 @@ let cssStyles = `
     color: #fff;
     background: #f962b1;
   } 
+  .card__icon--tw {
+    color: #00acee;
+    border: 1px solid #00acee;
+  }
+
+  .card__icon--tw:hover {
+    color: #fff;
+    background: #00acee;
+  } 
 `;
+
 body.prepend(root);
 root.classList.add('root');
-card.classList.add('card');
 root.prepend(card);
 root.style.cssText = `
   background: url('https://images.unsplash.com/photo-1437435409766-a478cc6da81a?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=2167&q=80');
@@ -180,19 +185,12 @@ root.style.cssText = `
   background-position: center;
 `;
 root.prepend(style);
+card.classList.add('card');
 style.innerHTML = cssStyles;
 card.innerHTML = html;
+
 let cardSocials = card.getElementsByClassName('card__socials')[0];
-let temp = `
-  <div class="card__icon card__icon--fb">
-    <span class="card__icon-box">
-      <i class="fab fa-facebook-f"></i>
-    </span>
-    <span class="card__icon-title">
-      Facebook
-    </span>
-  </div>
-`
+
 data.socials.forEach((item, index) => {
   let tempNode = document.createElement('div')
   tempNode.classList.add('card__icon', `card__icon--${item.id}`)
@@ -202,7 +200,7 @@ data.socials.forEach((item, index) => {
     </span>
   <span class="card__icon-title">
    ${item.service}
-</span>
+  </span>
   `;
   cardSocials.append(tempNode)
 });
