@@ -1,4 +1,36 @@
 // let root = document.getElementsByClassName('root')[0];
+
+let data = {
+  fullName: 'Jane Doe',
+  title: 'UI/UX Designer',
+  socials: [
+    {
+      id: 'fb',
+      service: 'Facebook',
+      url: 'https://facebook.com/jdoe24',
+      icon: 'fab fa-facebook-f'
+    },
+    {
+      id: 'ig',
+      service: 'Intagram',
+      url: 'https://instgram.com/jdoe24',
+      icon: 'fab fa-instagram'
+    },
+    {
+      id: 'db',
+      service: 'Dribbble',
+      url: 'https://dribbble.com/jdoe24',
+      icon: 'fab fa-dribble'
+    },
+    {
+      id: 'tw',
+      service: 'Twitter',
+      url: 'https://twitter.com/jdoe24',
+      icon: 'fab fa-twitter'
+    }
+  ]
+}
+
 let style = document.createElement('style');
 
 let root = document.createElement('div');
@@ -10,34 +42,11 @@ let html = `
     src="https://images.generated.photos/B7CJLWXHEhr73EmhhiWyTK-WT39VwobNNqwknL-vwUg/rs:fit:512:512/Z3M6Ly9nZW5lcmF0/ZWQtcGhvdG9zLzA5/NzY1NDcuanBn.jpg"
     alt="" class="card__user-img">
   <div class="card__info">
-    <span class="card__name">Jane Doe</span>
-    <span class="card__title">UI/UX Designer</span>
+    <span class="card__name">${data.fullName}</span>
+    <span class="card__title">${data.title}</span>
   </div>
   <div class="card__socials">
-    <div class="card__icon card__icon--fb">
-      <span class="card__icon-box">
-        <i class="fab fa-facebook-f"></i>
-      </span>
-      <span class="card__icon-title">
-        Facebook
-      </span>
-    </div>
-    <div class="card__icon card__icon--ig">
-      <span class="card__icon-box">
-        <i class="fab fa-instagram"></i>
-      </span>
-      <span class="card__icon-title">
-        Instagram
-      </span>
-    </div>
-    <div class="card__icon card__icon--db">
-      <span class="card__icon-box">
-        <i class="fab fa-dribbble"></i>
-      </span>
-      <span class="card__icon-title">
-        Dribbble
-      </span>
-    </div>
+   
   </div>
 </div>
 `;
@@ -170,4 +179,31 @@ root.style.cssText = `
   background-size: cover; 
   background-position: center;
 `;
-document.getElementsByClassName('card')[0].innerHTML = html;
+root.prepend(style);
+style.innerHTML = cssStyles;
+card.innerHTML = html;
+let cardSocials = card.getElementsByClassName('card__socials')[0];
+let temp = `
+  <div class="card__icon card__icon--fb">
+    <span class="card__icon-box">
+      <i class="fab fa-facebook-f"></i>
+    </span>
+    <span class="card__icon-title">
+      Facebook
+    </span>
+  </div>
+`
+data.socials.forEach((item, index) => {
+  let tempNode = document.createElement('div')
+  tempNode.classList.add('card__icon', `card__icon--${item.id}`)
+  tempNode.innerHTML = `
+  <span class="card__icon-box">
+  <i class="${item.icon}"></i>
+    </span>
+  <span class="card__icon-title">
+   ${item.service}
+</span>
+  `;
+  cardSocials.append(tempNode)
+});
+console.log(card)
