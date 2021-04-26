@@ -49,3 +49,70 @@
 	font-size: 0.7rem;
 	margin-bottom: 2rem;
 }
+
+.card__icon {
+	width: 200px;
+	padding: 10px;
+	border: 1px solid #000;
+	border-radius: 3px;
+	margin-bottom: 0.4rem;
+	overflow: hidden;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	transition: background 0.3s ease-in-out, color 0.3s ease-in-out;
+	cursor: pointer;
+}
+
+.card__icon-box {
+	width: 25px;
+	display: inline-block;
+	text-align: center;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.card__icon-title {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	width: 100%;
+}
+
+.card__icon--fb {
+	color: #2c5eff;
+	border: 1px solid #2c5eff;
+}
+
+.card__icon--fb:hover {
+	color: #fff;
+	background: #2c5eff;
+}
+
+.card__icon--ig {
+	color: #bc1888;
+	border: 1px solid #bc1888;
+}
+
+.card__icon--ig:hover {
+	color: #fff;
+	background: linear-gradient(
+		45deg,
+		#f09433 0%,
+		#e6683c 25%,
+		#dc2743 50%,
+		#cc2366 75%,
+		#bc1888 100%
+	);
+}
+
+.card__icon--db {
+	color: #f962b1;
+	border: 1px solid #f962b1;
+}
+
+.card__icon--db:hover {
+	color: #fff;
+	background: #f962b1;
+}
