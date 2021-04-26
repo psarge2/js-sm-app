@@ -20,7 +20,7 @@ let data = {
       id: 'db',
       service: 'Dribbble',
       url: 'https://dribbble.com/jdoe24',
-      icon: 'fab fa-dribble'
+      icon: 'fab fa-dribbble'
     },
     {
       id: 'tw',
